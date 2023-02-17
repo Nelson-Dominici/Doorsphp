@@ -1,0 +1,24 @@
+{
+    "name": "nelson-dominici/php-api",
+    "description": "A PHP API",
+    
+    "type": "project",
+    
+    "require": {
+        "ramsey/uuid": "^4.7",
+        "firebase/php-jwt": "^6.4"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+
+    "authors": [
+        {
+            "name": "Nelson-Dominici",
+            "email": "nelsondominici777@gmail.com"
+        }
+    ]
+}
