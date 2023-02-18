@@ -22,22 +22,20 @@
       * [Remote files](#remote-files)
       * [Multiple files](#multiple-files)
       * [Combo](#combo)
-   * [Tests](#testes)
-   * [Tecnologias](#tecnologias)
 
 
-<h2>🚀 About</h2>
+<h2><a href="#Abou">🚀 About<a></h2>
 <p>
   PHP-API is an api made in pure php, which is intended to serve as a starting point for other projects, it contains some features that will facilitate the creation of your api such as:
 <p>
 
 <ul>
-  <li>Easy access to uri params and query params</li>
-  <li>Easy use of routes</li>
-  <li>Login permanence with jwt, unique identifier with uuid</li>
-  <li>Access to the request body, protected from attacks and mandatory data requirements</li>
-  <li>Singleton connection to database</li>
-  
+  <li>Easy use of routes.</li>
+  <li>Routes with URI Params.</li>
+  <li>Easy access to Query Params.</li>
+  <li>Access to the body of the request independent of the http method.</li>
+  <liBody data protected against xss attacks.</li>
+  <li>Possibility to request mandatory data in the body.</li>
   
   
 </ul>
