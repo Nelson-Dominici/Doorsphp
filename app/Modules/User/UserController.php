@@ -1,32 +1,24 @@
 <?php
 
 namespace app\Modules\User;
-
 use app\Utils\SuccessRes;
-use app\Handle\Request\ValidateToken;
 
 class UserController 
 {
 
-	public function register($req){
+	public function postExample($req){
 
-		Services\RegisterService::execute($req["body"]);
-		SuccessRes::send("user has been successfully registered", 200);
+		$message = Services\SomeService::execute($req["body"]);
+		SuccessRes::send("$message", 200);
 	}
 
-	public function login($req){
-
-		$jwt = Services\LoginService::execute($req["body"]);
-		SuccessRes::send(["jwt" => $jwt], 200);
+	public function absoluteRoute($req){
+		var_dump($req);
 	}
-
-	public function userInfos($req){
-
-		$payload = ValidateToken::validate();
-		$user = Services\UserInfosService::execute($payload->uuid);
-		SuccessRes::send(["user" => $user], 200);
+	
+	public function uriParam($req){
+		var_dump($req);
 	}
-
 }
 
 return new UserController();
