@@ -10,9 +10,10 @@
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
 </span>
-<br>
 
-   * [Sobre](#Sobre)
+## 📝 Summary
+  
+   * [About](#About)
    * [Tabela de Conteudo](#tabela-de-conteudo)
    * [Instalação](#instalacao)
    * [Como usar](#como-usar)
@@ -24,7 +25,25 @@
    * [Tests](#testes)
    * [Tecnologias](#tecnologias)
 
-# Autor
+
+<h2>🚀 About</h2>
+<p>
+  PHP-API is an api made in pure php, which is intended to serve as a starting point for other projects, it contains some features that will facilitate the creation of your api such as:
+<p>
+
+<ul>
+  <li>Easy access to uri params and query params</li>
+  <li>Easy use of routes</li>
+  <li>Login permanence with jwt, unique identifier with uuid</li>
+  <li>Access to the request body, protected from attacks and mandatory data requirements</li>
+  <li>Singleton connection to database</li>
+  
+  
+  
+</ul>
+  
+
+## Autor
 
 | [<img src="https://avatars.githubusercontent.com/Nelson-Dominici" width=115><br><sub>Nelson Dominici</sub>](https://github.com/Nelson-Dominici) |
 | :---: |
