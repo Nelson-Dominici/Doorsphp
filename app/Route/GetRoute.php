@@ -34,6 +34,6 @@ class GetRoute
 		if($uriParamsRoute)
 			return $uriParamsRoute;
 		
-		throw new AppException("This Url don't exists", 404);
+		throw new AppException("This Route don't exists", 404);
 	}
 }
