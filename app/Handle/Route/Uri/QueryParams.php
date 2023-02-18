@@ -23,7 +23,7 @@ class QueryParams
 		
 		};
 
-		return "";
+		return [];
 	}
 
 }
