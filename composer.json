@@ -4,11 +4,6 @@
     
     "type": "project",
     
-    "require": {
-        "ramsey/uuid": "^4.7",
-        "firebase/php-jwt": "^6.4"
-    },
-
     "autoload": {
         "psr-4": {
             "app\\": "app/"
