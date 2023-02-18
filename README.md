@@ -11,19 +11,6 @@
 
 </span>
 
-## 📝 Summary
-  
-   * [About](#About)
-   * [Tabela de Conteudo](#tabela-de-conteudo)
-   * [Instalação](#instalacao)
-   * [Como usar](#como-usar)
-      * [Pre Requisitos](#pre-requisitos)
-      * [Local files](#local-files)
-      * [Remote files](#remote-files)
-      * [Multiple files](#multiple-files)
-      * [Combo](#combo)
-
-
 <h2><a href="#Abou">🚀 About<a></h2>
 <p>
   PHP-API is an api made in pure php, which is intended to serve as a starting point for other projects, it contains some features that will facilitate the creation of your api such as:
