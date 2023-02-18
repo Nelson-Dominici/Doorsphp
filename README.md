@@ -24,10 +24,17 @@
   <li>Access to the body of the request independent of the http method.</li>
   <liBody data protected against xss attacks.</li>
   <li>Possibility to request mandatory data in the body.</li>
-  
-  
 </ul>
-  
+
+<h2>⚙ Requirements</h2>
+<ul>
+  <li>PHP versio-8.1.13</li>
+  <li>composer versio-2.5.1</li>
+</ul>
+
+
+<h2>🌱 Structure</h2>
+<p>The principal file is the index.php </p>
 
 <h2>🧷 Author</h2>
 
