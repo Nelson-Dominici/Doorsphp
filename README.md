@@ -1,8 +1,9 @@
-<h1 align="center" >
+<p align="center" >
 
 <img style="object-fit: cover;" src="https://user-images.githubusercontent.com/89428967/219802149-5f759c02-f575-461e-a777-29e5029d55fe.png" width="220px" height="200px">
 
-</h1>
+
+</p>
 
 <span align="center" >
 
@@ -11,39 +12,24 @@
 
 </span>
 
-## 📝 Summary
-  
-   * [About](#About)
-   * [Tabela de Conteudo](#tabela-de-conteudo)
-   * [Instalação](#instalacao)
-   * [Como usar](#como-usar)
-      * [Pre Requisitos](#pre-requisitos)
-      * [Local files](#local-files)
-      * [Remote files](#remote-files)
-      * [Multiple files](#multiple-files)
-      * [Combo](#combo)
-   * [Tests](#testes)
-   * [Tecnologias](#tecnologias)
-
-
 <h2>🚀 About</h2>
 <p>
-  PHP-API is an api made in pure php, which is intended to serve as a starting point for other projects, it contains some features that will facilitate the creation of your api such as:
+  PHP-API is an api made in pure php, without any dependence, which is intended to serve as a starting point for other projects, it contains some features that will facilitate the creation of your api such as:
 <p>
 
 <ul>
-  <li>Easy access to uri params and query params</li>
-  <li>Easy use of routes</li>
-  <li>Login permanence with jwt, unique identifier with uuid</li>
-  <li>Access to the request body, protected from attacks and mandatory data requirements</li>
-  <li>Singleton connection to database</li>
-  
+  <li>Easy use of routes.</li>
+  <li>Routes with URI Params.</li>
+  <li>Easy access to Query Params.</li>
+  <li>Access to the body of the request independent of the http method.</li>
+  <liBody data protected against xss attacks.</li>
+  <li>Possibility to request mandatory data in the body.</li>
   
   
 </ul>
   
 
-## Autor
+<h2>🧷 Author</h2>
 
 | [<img src="https://avatars.githubusercontent.com/Nelson-Dominici" width=115><br><sub>Nelson Dominici</sub>](https://github.com/Nelson-Dominici) |
 | :---: |
