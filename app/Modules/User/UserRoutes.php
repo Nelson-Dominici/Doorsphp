@@ -4,22 +4,20 @@ return $userRoutes = [
 
 	"POST" => [
 
-		"/user/register" => [	
-			"funcPath" => "User:UserController:register",
+		"/user/post" => [	
+			"funcPath" => "User:UserController:postExample",
 			["name", "email", "password"]
-		],
-
-		"/user/login" => [
-			"funcPath" => "User:UserController:login",
-			["email", "password"]
 		],
 	],
 
 	"GET" => [
 
-		"/user/infos" => [
-			"funcPath" => "User:UserController:userInfos"
+		"/" => [	
+			"funcPath" => "User:UserController:absoluteRoute",
+		],
+
+		"/uriParams/:userName" => [	
+			"funcPath" => "User:UserController:uriParam",
 		],
 	],
-
 ];
