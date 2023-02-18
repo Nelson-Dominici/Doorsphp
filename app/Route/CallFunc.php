@@ -14,10 +14,16 @@ class CallFunc
 		$httpMethod = $_SERVER["REQUEST_METHOD"];
 		$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
+		if(gettype($uri) !== "string"){
+			throw new AppException("Something Went Wrong", 500);
+		}
+
 		$route = GetRoute::get($uri, $httpMethod);
 		$func = GetFunc::get($route["funcPath"]);
 
 		$req["queryParams"] = QueryParams::get();
+		$req["uriParams"] = [];
+		$req["body"] = [];
 
 		if (array_key_exists("uriParams", $route)) {
 			$req["uriParams"] = $route["uriParams"];
@@ -36,5 +42,4 @@ class CallFunc
 		
 		exit();
 	}
-	
 }
