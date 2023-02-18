@@ -14,7 +14,7 @@
 
 <h2>🚀 About</h2>
 <p>
-  PHP-API is an api made in pure php, which is intended to serve as a starting point for other projects, it contains some features that will facilitate the creation of your api such as:
+  PHP-API is an api made in pure php, without any dependence, which is intended to serve as a starting point for other projects, it contains some features that will facilitate the creation of your api such as:
 <p>
 
 <ul>
