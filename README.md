@@ -44,7 +44,7 @@
 ## 🌿 How to use
 <p>
 
-Creating the API will revolve around the app\Modules folder. As mentioned in the topic above, this folder is responsible for grouping the functions of a specific entity, functions such as: Services, Controller and Routes, you can add as many as you want. Inside it there is a folder called User which is an entity to serve as an example, containing files with these functions. Now let's talk about these functions using these files as an example:
+Creating the API will revolve around the app\Modules folder. there will be utilities such as: Services, Controller and Routes, related to an entity (you can add as many as you want). Inside it there is a folder called User which is an entity that I recommend you follow as an example. Here's how to use the utilities:
 
 </p>
 
