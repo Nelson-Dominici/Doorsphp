@@ -33,13 +33,13 @@
 </ul>
 
 ## 🌱 Structure
-I will mention only the files/folders that will be useful for you to create your api:
 
-- `bootstrap.php`: This file is responsible for initializing (those that need to be initialized first) the API dependencies.
-- `app\Handle`: The Handle folder is responsible for handling SPECIFIC parts of the API (DO NOT EXCLUDE THE REQUEST/ROUTE FOLDER).
-- `app\Modules`: The Modules folder is responsible for grouping functions for specific entities (the User folder within it is an example).
-- `app\Route`: The only relevant thing inside the AllRoutes folder for creating your API is the AllRoutes.php file, responsible for grouping all the API routes.
-- `app\Utils`: The Utils folder is responsible for grouping files that can be called throughout the API.
+- `index.php`: API main file. 
+- `bootstrap.php`: Responsible for initializing (those that need to be initialized first) the API dependencies.
+- `app\Handle`: Responsible for handling SPECIFIC parts of the API (DO NOT DELETE THE REQUEST/ROUTE FOLDER).
+- `app\Modules`: Responsible for grouping roles for specific entities (the User folder within it is an example).
+- `app\Route`: Group functions of routes.
+- `app\Utils`: Responsible for grouping the files that can be called throughout the API.
 
 
 <h2>🧷 Author</h2>
