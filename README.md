@@ -51,10 +51,34 @@ Creating the API will revolve around the app\Modules folder. As mentioned in the
 ### 🗺 Routes
 <p>
 
-Once you have created an entity you need to create a file with the routes of that entity, the example route file is UserRoutes.php. see how the routes are created:
-
+After creating an entity, you need to create a file with the routes of that entity, see the example that comes in the API:
 </p>
 
+```php
+<?php
+
+return $userRoutes = [
+
+	"POST" => [
+
+		"/user/post" => [	
+			"funcPath" => "User:UserController:postExample",
+			"mandatoryData" => ["name", "email", "password"]
+		],
+	],
+  
+  	"GET" => [
+
+		"/" => [	
+			"funcPath" => "User:UserController:absoluteRouteExample",
+		],
+	],
+  
+];
+```
+<p>
+It is worth noting that the fights are separated by http methods, the path of the function that will be executed after accessing the route is passed in the funcPath field, first the module name is passed, then the controller name, and finally the name of the method .
+</p>
 
 <h2>🧷 Author</h2>
 
