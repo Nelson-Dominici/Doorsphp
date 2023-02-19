@@ -32,7 +32,7 @@
   <li>composer version =>2.5.1</li>
 </ul>
 
-## 🌱 Funcionalidades do projeto
+## 🌱 Structure
 I will mention only the files/folders that will be useful for you to create your api:
 
 - `bootstrap.php`: This file is responsible for initializing (those that need to be initialized first) the API dependencies.
