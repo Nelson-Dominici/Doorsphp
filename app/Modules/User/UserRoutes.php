@@ -6,18 +6,18 @@ return $userRoutes = [
 
 		"/user/post" => [	
 			"funcPath" => "User:UserController:postExample",
-			["name", "email", "password"]
+			"mandatoryData" => ["name", "email", "password"]
 		],
 	],
 
 	"GET" => [
 
 		"/" => [	
-			"funcPath" => "User:UserController:absoluteRoute",
+			"funcPath" => "User:UserController:absoluteRouteExample",
 		],
 
-		"/uriParams/:userName" => [	
-			"funcPath" => "User:UserController:uriParam",
+		"/user/:userName/friend/:friendName" => [	
+			"funcPath" => "User:UserController:uriParamExample",
 		],
 	],
 ];
