@@ -53,8 +53,28 @@ The creation of the API will revolve around the app\Modules folder, inside which
 ### 🗺 Routes
 <p>
 
-Inside the User folder there is a User Routes.php file, this is where you will have the routes related to the User entity (you can create routes without having a specific entity), see what's inside:
+Inside the User folder there is a User Routes.php file, this is where the routes related to the User entity will be (you can create routes without having a specific entity).
+
 </p>
+
+
+#### 📝 funcPath
+<p>
+The funcPath field that is passed after you put a uri inside an http method is responsible for saying which method has to be called after the uri is accessed. <br>
+	Folder(entity) inside the modules folder<b> : </b> file with the class(class has to be the same name as the file)<b> : </b> method.
+</p>
+
+#### 👮‍♂️ mandatoryData
+<p>
+The requiredData field that is passed after you put a uri inside an http method is responsible for saying which REQUEST BODY fields are mandatory. if a mandatory field is empty or not sent, the API will respond with a json stating that the specified field is mandatory and will terminate the API execution (requiring mandatory data from the request body will not work in the GET and HEADE methods).
+</p>
+
+```json
+{
+   "message": "name is required"
+}
+```
+<br>
 
 ```php
 <?php
@@ -82,18 +102,6 @@ return $userRoutes = [
 ];
 
 ```
-#### 📝 funcPath
-<p>
-The funcPath field that is passed after you put a uri inside an http method is responsible for saying which method has to be called after the uri is accessed. <br>
-	Folder(entity) inside the modules folder<b> : </b> file with the class(class has to be the same name as the file)<b> : </b> method.
-</p>
-
-#### 👮‍♂️ mandatoryData
-<p>
-The mandatoryData field that is passed after you put a uri inside an http method is responsible for saying which fields of the REQUEST BODY are mandatory. if a mandatory field is empty or not sent, it will send a json saying that the specified field is mandatory and terminates the API execution.
-
-</p>
-
 
 
 <h2>🧷 Author</h2>
