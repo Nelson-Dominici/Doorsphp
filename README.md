@@ -14,7 +14,7 @@
 
 <h2>🚀 About</h2>
 <p>
-  PHP-API is an api made in pure php, without any dependence, created to serve as a starting point for other APIS, it contains some features that will facilitate the creation of your api such as:
+PHP-API is an api made in pure php, without any dependencies, created to serve as a starting point for other APIs, it contains some resources that will facilitate the creation of your api, such resources are:
 <p>
 
 <ul>
@@ -23,7 +23,7 @@
   <li>Easy access to Query Params.</li>
   <li>Access to the body of the request independent of the http method.</li>
   <liBody data protected against xss attacks.</li>
-  <li>Possibility to request mandatory data in the body.</li>
+  <li>Possibility of requesting mandatory data in the body of the request.</li>
 </ul>
 
 <h2>⚙ Requirements</h2>
@@ -34,24 +34,26 @@
 
 ## 🌱 Structure
 
-- `index.php`: API main file. 
+<p>
+Only the important files/folders for building for your API will be cited.
+</p>
+
 - `bootstrap.php`: Responsible for initializing (those that need to be initialized first) the API dependencies.
-- `app\Handle`: Responsible for handling SPECIFIC parts of the API (DO NOT DELETE THE REQUEST/ROUTE FOLDER).
-- `app\Modules`: Responsible for grouping roles for specific entities (the User folder within it is an example).
-- `app\Route`: Group functions of routes.
-- `app\Utils`: Responsible for grouping the files that can be called throughout the API.
+- `app\Modules`: Responsible for grouping resources for specific entities (the User folder inside it is an example).
+- `app\AllRoutes.php`: Group all API routes.
 
 ## 🌿 How to use
+
 <p>
 
-Creating the API will revolve around the app\Modules folder. there will be utilities such as: Services, Controller and Routes, related to an entity (you can add as many as you want). Inside it there is a folder called User which is an entity that I recommend you follow as an example. Here's how to use the utilities:
+The creation of the API will revolve around the app\Modules folder, inside which there is the User folder, which is an entity that will serve as an example, now see how to use the API resources using the User folder as an example:
 
 </p>
 
 ### 🗺 Routes
 <p>
 
-After creating an entity, you need to create a file with the routes of that entity, see the example that comes in the API:
+Inside the User folder there is a User Routes.php file, this is where you will have the routes related to the User entity (you can create routes without having a specific entity), see what's inside:
 </p>
 
 ```php
@@ -66,19 +68,33 @@ return $userRoutes = [
 			"mandatoryData" => ["name", "email", "password"]
 		],
 	],
-  
-  	"GET" => [
+
+	"GET" => [
 
 		"/" => [	
 			"funcPath" => "User:UserController:absoluteRouteExample",
 		],
+
+		"/user/:uriParam1/example/:uriParam2" => [	
+			"funcPath" => "User:UserController:uriParamExample",
+		],
 	],
-  
 ];
+
 ```
+#### 📝 funcPath
 <p>
-It is worth noting that the fights are separated by http methods, the path of the function that will be executed after accessing the route is passed in the funcPath field, first the module name is passed, then the controller name, and finally the name of the method .
+The funcPath field that is passed after you put a uri inside an http method is responsible for saying which method has to be called after the uri is accessed. <br>
+	Folder(entity) inside the modules folder<b> : </b> file with the class(class has to be the same name as the file)<b> : </b> method.
 </p>
+
+#### 👮‍♂️ mandatoryData
+<p>
+The mandatoryData field that is passed after you put a uri inside an http method is responsible for saying which fields of the REQUEST BODY are mandatory. if a mandatory field is empty or not sent, it will send a json saying that the specified field is mandatory and terminates the API execution.
+
+</p>
+
+
 
 <h2>🧷 Author</h2>
 
