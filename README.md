@@ -18,8 +18,8 @@ PHP-API is an api made in pure php, without any dependencies, created to serve a
 <p>
 
 <ul>
-  <li>Easy use of routes.</li>
-  <li>Routes with URI Params.</li>
+  <li>Endpoint access.</li>
+  <li>Endpoint with URI Params.</li>
   <li>Easy access to Query Params.</li>
   <li>Access to the body of the request independent of the http method.</li>
   <liBody data protected against xss attacks.</li>
@@ -41,34 +41,33 @@ Only the important files/folders for building for your API will be cited.
 - `bootstrap.php`: Responsible for initializing (those that need to be initialized first) the API dependencies.
 - `app\Example`: This folder will serve as an example of how to use the API (you can exclude it).
 - `app\NativeResources`: This folder will make all API features work (do not delete).
-- `app\AllRoutes.php`: Group all API routes.
+- `app\AllRoutes.php`: Group all API endpoints.
 
 ## 🌿 How to use
 
 <p>
 
-The creation of the API will revolve around the app\Modules folder, inside which there is the User folder, which is an entity that will serve as an example, now see how to use the API resources using the User folder as an example:
+To understand the use of API resources there is the app\Example folder inside it there are some files that will serve as an example. See now how to use the API resources using this folder as an example:
 
 </p>
 
 ### 🗺 Routes
 <p>
 
-Inside the User folder there is a User Routes.php file, this is where the routes related to the User entity will be (you can create routes without having a specific entity).
+Inside the app\Example\User folder there is a UserRoutes.php file, this is where the routes related to the User will be (you can create routes without relating to anything).
 
 </p>
 
 
 #### 📝 funcPath
 <p>
-The funcPath field that is passed after you put a uri inside an http method is responsible for saying which method has to be called after the uri is accessed. <br>
+The funcPath field that is passed after you put an endpoint inside an http method, is responsible for saying the ABSOLUTE path of the class, and the method that will be called after accessing the endpoint. <br>
 	ABSOLUTE path of the file where the class(the class can have any name) is:method name
-
 </p>
 
 #### 👮‍♂️ mandatoryData
 <p>
-The requiredData field that is passed after you put a uri inside an http method is responsible for saying which REQUEST BODY fields are mandatory. if a mandatory field is empty or not sent, the API will respond with a json stating that the specified field is mandatory and will terminate the API execution (requiring mandatory data from the request body will not work in the GET and HEADE methods).
+The requiredData field that is passed after you put an endpoint inside an http method, is responsible for saying which REQUEST BODY fields are mandatory. if a required field is empty or does not exist, the API will respond with a json stating that the specified field is required and will terminate the API execution (requiring required data from the request body will not work in GET and HEADE methods).
 </p>
 
 ```json
@@ -104,15 +103,15 @@ return $userRoutes = [
 ];
 ```
 <p>
-To make these routes work you need to join them (the array) with the array that will join all the API routes, which is in app\AllRoutes.php.
+To make these endpoints work you need to join them (the array) with the array that will join all the API endpoints, which is in app\AllRoutes.php.
 </p>
 
 #### 🔎 NOT-FOUND
 <p>
-The NOT-FOUND field is required if the route is not found.
+The NOT-FOUND field is mandatory, it will be used in case the entered route is not found.
 </p>
 
-#### ❌ HTTP Methods
+#### ⚙ HTTP Methods
 <p>
 Notice that the routes are being separated from HTTP methods.
 </p>
@@ -139,7 +138,58 @@ return [
 ];
 
 ```
+<br>
 
+### 📦 URI Params - Query Params - Request Body
+
+<p>
+As stated above, every endpoint needs a funcPath field, as this is where the class path is located, and the method that will be called after accessing the endpoint, and it is in the parameter of this method that the Query Parameters, URI, The Request Body. see the example in the ExampleController.php file.</p>
+
+#### 🧷 Important
+
+<p>
+
+Notice that the class is being returned and instantiated, this is important for the endpoint to work.
+
+</p>
+
+
+```php
+
+<?php
+
+class ExampleController
+{
+
+	public function postExample($req){
+
+		echo "<h1>executing the postExample</h1>";
+		var_dump($req);
+	}
+
+	public function absoluteRouteExample($req){
+
+		echo "<h1>executing the absoluteRouteExample</h1>";
+		var_dump($req);
+	}
+	
+	public function uriParamExample($req){
+
+		echo "<h1>executing the uriParamExample</h1>";
+		var_dump($req);
+	}
+
+	public function notFound($req){
+	
+		echo "<h1>Page Not Found</h1>";
+		var_dump($req);
+	}
+
+}
+
+return new ExampleController();
+
+```
 
 
 <h2>🧷 Author</h2>
