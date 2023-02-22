@@ -61,7 +61,8 @@ Inside the User folder there is a User Routes.php file, this is where the routes
 #### 📝 funcPath
 <p>
 The funcPath field that is passed after you put a uri inside an http method is responsible for saying which method has to be called after the uri is accessed. <br>
-	Folder(entity) inside the modules folder<b> : </b> file with the class(class has to be the same name as the file)<b> : </b> method.
+	ABSOLUTE path of the file where the class(the class can have any name) is:method name
+
 </p>
 
 #### 👮‍♂️ mandatoryData
@@ -102,7 +103,9 @@ return $userRoutes = [
 ];
 
 ```
-
+<p>
+To make these routes work you need to join them (the array) with the array that is in app\AllRoutes.php.
+</p>
 
 <h2>🧷 Author</h2>
 
