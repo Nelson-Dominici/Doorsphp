@@ -39,7 +39,8 @@ Only the important files/folders for building for your API will be cited.
 </p>
 
 - `bootstrap.php`: Responsible for initializing (those that need to be initialized first) the API dependencies.
-- `app\Modules`: Responsible for grouping resources for specific entities (the User folder inside it is an example).
+- `app\Example`: This folder will serve as an example of how to use the API (you can exclude it).
+- `app\NativeResources`: This folder will make all API features work (do not delete).
 - `app\AllRoutes.php`: Group all API routes.
 
 ## 🌿 How to use
@@ -85,7 +86,7 @@ return $userRoutes = [
 	"POST" => [
 
 		"/user/post" => [	
-			"funcPath" => "User:UserController:postExample",
+			"funcPath" => "app/Example/User/UserController:postExample",
 			"mandatoryData" => ["name", "email", "password"]
 		],
 	],
@@ -93,19 +94,53 @@ return $userRoutes = [
 	"GET" => [
 
 		"/" => [	
-			"funcPath" => "User:UserController:absoluteRouteExample",
+			"funcPath" => "app/Example/User/UserController:absoluteRouteExample",
 		],
 
 		"/user/:uriParam1/example/:uriParam2" => [	
-			"funcPath" => "User:UserController:uriParamExample",
+			"funcPath" => "app/Example/User/UserController:uriParamExample",
 		],
 	],
 ];
-
 ```
 <p>
-To make these routes work you need to join them (the array) with the array that is in app\AllRoutes.php.
+To make these routes work you need to join them (the array) with the array that will join all the API routes, which is in app\AllRoutes.php.
 </p>
+
+#### 🔎 NOT-FOUND
+<p>
+The NOT-FOUND field is required if the route is not found.
+</p>
+
+#### ❌ HTTP Methods
+<p>
+Notice that the routes are being separated from HTTP methods.
+</p>
+
+```php
+
+<?php
+
+require_once("app/Example/User/UserRoutes.php");
+
+return [
+
+	"POST" => array_merge(
+		$userRoutes["POST"],
+	),
+
+	"GET" => array_merge(
+		$userRoutes["GET"],
+	),
+
+	"NOT-FOUND" => [
+		"funcPath" => "app/Example/User/UserController:notFound"
+	]
+];
+
+```
+
+
 
 <h2>🧷 Author</h2>
 
