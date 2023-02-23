@@ -2,6 +2,6 @@
 
 require("bootstrap.php");
 
-use app\NativeFeatures\Route\CallFunc;
+use app\NativeResources\Route\CallFunc;
 
 CallFunc::call();
