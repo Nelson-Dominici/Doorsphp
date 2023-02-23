@@ -1,18 +1,18 @@
 <?php
 
-require_once("app/Modules/User/UserRoutes.php");
+require_once("app/Example/ExampleRoutes.php");
 
 return [
 
 	"POST" => array_merge(
-		$userRoutes["POST"],
+		$exampleRoutes["POST"],
 	),
 
 	"GET" => array_merge(
-		$userRoutes["GET"],
+		$exampleRoutes["GET"],
 	),
 
 	"NOT-FOUND" => [
-		"funcPath" => "User:UserController:notFound"
+		"funcPath" => "app/Example/ExampleController:notFound"
 	]
 ];
