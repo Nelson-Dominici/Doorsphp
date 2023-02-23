@@ -80,12 +80,12 @@ The requiredData field that is passed after you put an endpoint inside an http m
 ```php
 <?php
 
-return $userRoutes = [
+return $exampleRoutes = [
 
 	"POST" => [
 
 		"/user/post" => [	
-			"funcPath" => "app/Example/User/UserController:postExample",
+			"funcPath" => "app/Example/ExampleController:postExample",
 			"mandatoryData" => ["name", "email", "password"]
 		],
 	],
@@ -93,11 +93,11 @@ return $userRoutes = [
 	"GET" => [
 
 		"/" => [	
-			"funcPath" => "app/Example/User/UserController:absoluteRouteExample",
+			"funcPath" => "app/Example/ExampleController:absoluteRouteExample",
 		],
 
 		"/user/:uriParam1/example/:uriParam2" => [	
-			"funcPath" => "app/Example/User/UserController:uriParamExample",
+			"funcPath" => "app/Example/ExampleController:uriParamExample",
 		],
 	],
 ];
@@ -120,20 +120,20 @@ Notice that the routes are being separated from HTTP methods.
 
 <?php
 
-require_once("app/Example/User/UserRoutes.php");
+require_once("app/Example/ExampleRoutes.php");
 
 return [
 
 	"POST" => array_merge(
-		$userRoutes["POST"],
+		$exampleRoutes["POST"],
 	),
 
 	"GET" => array_merge(
-		$userRoutes["GET"],
+		$exampleRoutes["GET"],
 	),
 
 	"NOT-FOUND" => [
-		"funcPath" => "app/Example/User/UserController:notFound"
+		"funcPath" => "app/Example/ExampleController:notFound"
 	]
 ];
 
