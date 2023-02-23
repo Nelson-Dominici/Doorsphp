@@ -138,7 +138,6 @@ return [
 ];
 
 ```
-<br>
 
 ### 📦 URI Params - Query Params - Request Body
 
