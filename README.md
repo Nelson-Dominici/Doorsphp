@@ -65,6 +65,25 @@ The funcPath field that is passed after you put an endpoint inside an http metho
 	ABSOLUTE path of the file where the class(the class can have any name) is:method name
 </p>
 
+#### 🎲 uriParams
+<p>
+To create an endpoint with uriParams, you need to pass :uriParam after the /.
+</p>
+
+```php
+
+<?php
+
+return $exampleRoutes = [
+
+	"GET" => [
+		"/user/:uriParam1/example/:uriParam2" => [	
+			"funcPath" => "app/Example/ExampleController:uriParamExample",
+		],
+	],
+];
+
+```
 #### 👮‍♂️ mandatoryData
 <p>
 The requiredData field that is passed after you put an endpoint inside an http method, is responsible for saying which REQUEST BODY fields are mandatory. if a required field is empty or does not exist, the API will respond with a json stating that the specified field is required and will terminate the API execution (requiring required data from the request body will not work in GET and HEADE methods).
