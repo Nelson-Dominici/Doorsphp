@@ -18,8 +18,8 @@ PHP-API is an api made in pure php, without any dependencies, created to serve a
 <p>
 
 <ul>
-  <li>Endpoint access.</li>
-  <li>Endpoint with URI Params.</li>
+  <li>Route access.</li>
+  <li>Route with URI Params.</li>
   <li>Easy access to Query Params.</li>
   <li>Access to the body of the request independent of the http method.</li>
   <liBody data protected against xss attacks.</li>
@@ -41,7 +41,7 @@ Only the important files/folders for building for your API will be cited.
 - `bootstrap.php`: Responsible for initializing (those that need to be initialized first) the API dependencies.
 - `app\NativeResources`: This folder will make all API features work (do not delete).
 
-## 🗺 Endpoins
+## 🗺 Routes
 <p>To use the routes first you have to call the Route class using autoload (note that before calling the bootstrap file it is needed for the composer autoload to work).</p>
   
 ```php
@@ -57,8 +57,8 @@ use app\NativeResources\Route;
 
 <ul>
  
- <li>The endpoint URI.</li>
- <li>An array an (instantiated) class and the method that will be called when the endpoint is used.</li>
+ <li>The Route URI.</li>
+ <li>An array an (instantiated) class and the method that will be called when the Route is used.</li>
  
 </ul>
 
@@ -98,7 +98,7 @@ Route::get("/", [$classExample, "uriParamasRoute"]);
 
 ## 🎲 uriParams
 <p>
-To create an endpoint with UriParams, you need to pass :(key) after the /, see the example:
+To create an Route with UriParams, you need to pass :(key) after the /, see the example:
 </p>
 
 ```php
@@ -109,7 +109,7 @@ Route::get("/example/:name/example/:age", [$classExample, "uriParamasRoute"]);
 ### 📦 URI Params - Query Params - Request Body
 
 <p>
-The data: URI Params - Query Params - Request Body, can be accessed in the parameters of the methods that will be called after an endpoint is called, see the example:
+The data: URI Params - Query Params - Request Body, can be accessed in the parameters of the methods that will be called after a Route is accessed (the GET and DELETE methods do not receive the body in the method parameter), see the example:
 </p>
 
 
