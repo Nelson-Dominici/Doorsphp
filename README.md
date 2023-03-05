@@ -43,7 +43,7 @@ Only the important files/folders for building for your API will be cited.
 - `app\NativeResources`: This folder will make all API features work (do not delete).
 
 ## 🗺 Endpoins
-<p>To use the routes first you have to call the Route class using atoload (note that before it is called the bootstrap file is being required for the composer autoload to work).</p>
+<p>To use the routes first you have to call the Route class using autoload (note that before calling the bootstrap file it is needed for the composer autoload to work).</p>
   
 ```php
 <?php
