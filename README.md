@@ -23,7 +23,6 @@ PHP-API is an api made in pure php, without any dependencies, created to serve a
   <li>Easy access to Query Params.</li>
   <li>Access to the body of the request independent of the http method.</li>
   <liBody data protected against xss attacks.</li>
-  <li>Possibility of requesting mandatory data in the body of the request.</li>
 </ul>
 
 <h2>⚙ Requirements</h2>
