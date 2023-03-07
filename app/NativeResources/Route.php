@@ -20,7 +20,7 @@ class Route
 
 		if($absoluteRoute || $uriParamsRoute){
 		
-			$req = ReqData::get($route);
+			$req = ReqData::get();
 
 			if($uriParamsRoute){
 				$req["uriParams"] = $uriParamsRoute;

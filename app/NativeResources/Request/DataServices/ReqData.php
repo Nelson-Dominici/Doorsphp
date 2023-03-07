@@ -5,7 +5,7 @@ namespace app\NativeResources\Request\DataServices;
 class ReqData
 {
 
-	public static function get($route){
+	public static function get(): array{
 
 		$httpMethod = $_SERVER["REQUEST_METHOD"];
 

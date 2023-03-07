@@ -5,7 +5,7 @@ namespace app\NativeResources\Request\Route;
 class UriParamsRoute
 {
 
-	public static function get($uri, $route){
+	public static function get(string $uri, string $route): array|bool{
 
 		$uriParts = explode("/", $uri);
 		array_shift($uriParts);

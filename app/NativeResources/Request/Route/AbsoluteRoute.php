@@ -5,7 +5,7 @@ namespace app\NativeResources\Request\Route;
 class AbsoluteRoute
 {
 
-	public static function get($uri, $route){
+	public static function get(string $uri, string$route): string|bool{
 			
 		$routeParts = explode("/", $route);
 		array_shift($routeParts);

@@ -5,7 +5,7 @@ namespace app\NativeResources\Request\DataServices;
 class QueryParams
 {
 
-	public static function get(){
+	public static function get(): array{
 
 		if(!empty($_SERVER['QUERY_STRING'])){
 
