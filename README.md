@@ -96,9 +96,9 @@ Route::get("/", [$classExample, "uriParamasRoute"]);
 
 
 
-## 🎲 uriParams
+## 🎲 Url Params Route 
 <p>
-To create an Route with UriParams, you need to pass :(key) after the /, see the example:
+To create an Route with UrlParams, you need to pass :(key) after the /, see the example:
 </p>
 
 ```php
