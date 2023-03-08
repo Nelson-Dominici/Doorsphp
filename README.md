@@ -19,7 +19,7 @@ PHP-API is an api made in pure php, without any dependencies, created to serve a
 
 <ul>
   <li>Route access.</li>
-  <li>Route with URI Params.</li>
+  <li>Route with URL Params.</li>
   <li>Easy access to Query Params.</li>
   <li>Access to the body of the request independent of the http method.</li>
   <liBody data protected against xss attacks.</li>
@@ -38,7 +38,7 @@ Only the important files/folders for building for your API will be cited.
 </p>
 
 - `index.php`: It is the main file where everything will be executed.
-- `bootstrap.php`: Responsible for initializing (those that need to be initialized first) the API dependencies.
+- `bootstrap.php`: Responsible for establishing the API settings, and requesting the automatic loading of the composer.
 - `app\NativeResources`: This folder will make all API features work (do not delete).
 
 ## 🗺 Routes
@@ -96,9 +96,9 @@ Route::get("/", [$classExample, "uriParamasRoute"]);
 
 
 
-## 🎲 uriParams
+## 🎲 Url Params Route 
 <p>
-To create an Route with UriParams, you need to pass :(key) after the /, see the example:
+To create an Route with UrlParams, you need to pass :(key) after the /, see the example:
 </p>
 
 ```php
@@ -106,10 +106,10 @@ Route::get("/example/:uuid", [$classExample, "uriParamasRoute"]);
 Route::get("/example/:name/example/:age", [$classExample, "uriParamasRoute"]);
 
 ```
-### 📦 URI Params - Query Params - Request Body
+### 📦 URL Params - Query Params - Request Body
 
 <p>
-The data: URI Params - Query Params - Request Body, can be accessed in the parameters of the methods that will be called after a Route is accessed (the GET and DELETE methods do not receive the body in the method parameter), see the example:
+The data: URL Params - Query Params - Request Body, can be accessed in the parameters of the methods that will be called after a Route is accessed (the GET and DELETE methods do not receive the body in the method parameter), see the example:
 </p>
 
 
