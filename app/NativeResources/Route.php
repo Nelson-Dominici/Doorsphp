@@ -3,9 +3,7 @@
 namespace app\NativeResources;
 
 use app\NativeResources\Request\Route\AbsoluteRoute;
-use app\NativeResources\Request\Route\UriParamsRoute;
-use app\NativeResources\Request\Route\Methods;
-
+use app\NativeResources\Request\Route\UrlParamsRoute;
 use app\NativeResources\Request\DataServices\ReqData;
 
 class Route
@@ -16,19 +14,19 @@ class Route
 		$uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
 		$absoluteRoute = AbsoluteRoute::get($uri, $route);
-		$uriParamsRoute = UriParamsRoute::get($uri, $route);
+		$uriParamsRoute = UrlParamsRoute::get($uri, $route);
 
 		if($absoluteRoute || $uriParamsRoute){
 		
-			$req = ReqData::get();
+			$reqData = ReqData::get();
 
 			if($uriParamsRoute){
-				$req["uriParams"] = $uriParamsRoute;
+				$reqData["urlParams"] = $uriParamsRoute;
 			}
 
 			[$class, $method] = $func;
 
-			call_user_func(array($class, $method), $req);
+			call_user_func(array($class, $method), $reqData);
 			exit();
 		}
 	}
