@@ -2,7 +2,7 @@
 
 namespace app\NativeResources\Request\Route;
 
-class UriParamsRoute
+class UrlParamsRoute
 {
 
 	public static function get(string $uri, string $route): array|bool{
@@ -17,11 +17,11 @@ class UriParamsRoute
 		
 		if(count($uriParts) === count($routeParts)){
 
-			$paramsArray = array_filter($routeParts, function($field) {
+			$urlParamsRoute = array_filter($routeParts, function($field) {
 				return strpos($field, ":") === 0;
 			});
 
-			if(!empty($paramsArray)){
+			if(!empty($urlParamsRoute)){
 
 				$noParamsArray = array_filter($routeParts, function($field) {
 					return strpos($field, ":") !== 0;
@@ -41,7 +41,7 @@ class UriParamsRoute
 
 				if($essentialPartsUri === $essentialPartsRoute){
 
-					foreach ($paramsArray as $key => $value) {
+					foreach ($urlParamsRoute as $key => $value) {
 						$uriParamKey = str_replace(":", "", $value);
 						$data[$uriParamKey] = $uriParts[$key];
 					}
