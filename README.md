@@ -72,15 +72,15 @@ use app\NativeResources\Route;
 
 class ClassExample
 {
-	public static function absoluteRoute($req){
+	public static function absoluteRoute(array $req){
 		var_dump($req);
 	}
 
-	public static function uriParamasRoute($req){
+	public static function uriParamasRoute(array $req){
 		var_dump($req);
 	}
 
-	public static function postExample($req){
+	public static function postExample(array $req){
 		var_dump($req);
 	}
 }
@@ -117,15 +117,15 @@ The data: URI Params - Query Params - Request Body, can be accessed in the param
 
 class ClassExample
 {
-	public static function absoluteRoute($req){
+	public static function absoluteRoute(array $req){
 		var_dump($req);
 	}
 
-	public static function uriParamasRoute($req){
+	public static function uriParamasRoute(array $req){
 		var_dump($req);
 	}
 
-	public static function postExample($req){
+	public static function postExample(array $req){
 		var_dump($req);
 	}
 }
