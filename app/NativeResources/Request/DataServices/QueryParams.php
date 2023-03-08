@@ -13,15 +13,15 @@ class QueryParams
 
 			$queryParams = []; 
 			
-			foreach(explode("&", $query) as $param) {
+			foreach(explode("&", $query) as $field) {
 				
-				$keyValue = explode("=", $param);
+				$key_value = explode("=", $field);
 
-				if (array_key_exists(1, $keyValue)) {
-					$queryParams["$keyValue[0]"] = "$keyValue[1]";
+				if (array_key_exists(1, $key_value)) {
+					$queryParams["$key_value[0]"] = "$key_value[1]";
 
 				} else {
-					$queryParams["$keyValue[0]"] = "";
+					$queryParams["$key_value[0]"] = "";
 				}
 			}
 
