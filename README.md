@@ -72,15 +72,15 @@ use app\NativeResources\Route;
 
 class ClassExample
 {
-	public function absoluteRoute(array $req){
+	public static function absoluteRoute(array $req){
 		var_dump($req);
 	}
 
-	public function uriParamasRoute(array $req){
+	public static function uriParamasRoute(array $req){
 		var_dump($req);
 	}
 
-	public function postExample(array $req){
+	public static function postExample(array $req){
 		var_dump($req);
 	}
 }
