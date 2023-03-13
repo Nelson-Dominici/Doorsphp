@@ -23,7 +23,7 @@ class ClassExample
 
 Route::post("/example/post", [ClassExample::class, "postExample"]);
 
+Route::get("/", [ClassExample::class, "absoluteRoute"]);
+
 Route::get("/example/:uuid", [ClassExample::class, "uriParamasRoute"]);
 Route::get("/example/:name/example/:age", [ClassExample::class, "uriParamasRoute"]);
-
-Route::get("/", [ClassExample::class, "uriParamasRoute"]);
