@@ -58,7 +58,7 @@ use app\NativeResources\Route;
 <ul>
  
  <li>The Route URI.</li>
- <li>An array an (instantiated) class and the method that will be called when the Route is used.</li>
+ <li>An array containing a class with identifier ::class and a string that will be the method that will be called after accessing the Route.</li>
  
 </ul>
 
@@ -85,12 +85,12 @@ class ClassExample
 	}
 }
 
-$classExample = new ClassExample();
+Route::post("/example/post", [ClassExample::class, "postExample"]);
 
-Route::post("/example/post", [$classExample, "postExample"]);
+Route::get("/example/:uuid", [ClassExample::class, "uriParamasRoute"]);
+Route::get("/example/:name/example/:age", [ClassExample::class, "uriParamasRoute"]);
 
-Route::get("/example/:uuid", [$classExample, "absoluteRoute"]);
-Route::get("/", [$classExample, "uriParamasRoute"]);
+Route::get("/", [ClassExample::class, "uriParamasRoute"]);
 
 ```
 
@@ -102,8 +102,9 @@ To create an Route with UrlParams, you need to pass :(key) after the /, see the 
 </p>
 
 ```php
-Route::get("/example/:uuid", [$classExample, "uriParamasRoute"]);
-Route::get("/example/:name/example/:age", [$classExample, "uriParamasRoute"]);
+Route::get("/example/:uuid", [ClassExample::class, "uriParamasRoute"]);
+Route::get("/example/:name/example/:age", [ClassExample::class, "uriParamasRoute"]);
+
 
 ```
 ### 📦 URL Params - Query Params - Request Body
