@@ -14,8 +14,18 @@
 
 <h2>🚀 About</h2>
 <p>
-PHP-Framework is a framework created with no intention to be used for the development of other projects.
+PHP-Framework is a framework created with no intention to be used for the development of other projects.<br>
+I created it to put my knowledge into practice.
 <p>
+
+
+
+<h2>🐘 Resources</h2>  
+
+* Routes
+  * 
+* Method called 'static' that is responsible for rendering static files
+
 
 <h2>⚙ Requirements</h2>
 <ul>
