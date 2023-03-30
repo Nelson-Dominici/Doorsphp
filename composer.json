@@ -1,6 +1,6 @@
 {
-    "name": "nelson-dominici/php-api",
-    "description": "A PHP API",
+    "name": "nelson-dominici/php-framework",
+    "description": "A PHP Framework for Student Purposes",
     
     "type": "project",
     
@@ -12,7 +12,8 @@
 
     "require": {
         "php": ">=8.1.13",
-        "composer/composer": ">=2.5.1"
+        "composer/composer": ">=2.5.1",
+        "twig/twig": "^2.0"
     },
 
     "authors": [
