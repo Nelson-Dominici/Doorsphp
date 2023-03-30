@@ -1,29 +1,51 @@
 <?php
 
-require("bootstrap.php");
+// This is an example
 
-// you can delete the example.
+require_once("./vendor/autoload.php");
 
-use app\NativeResources\Route;
+use app\App;
 
-class ClassExample
+use app\Modules\Route\Services\Response\GetRes as Response;
+use app\Modules\Route\Services\Request\GetReq as Request;
+
+$app = new App();
+
+class Example
 {
-	public function absoluteRoute(array $req){
+	public static function example(Request $req, Response $res){
+		$queryParams = $req->queryParams;
+		$urlParams = $req->urlParams;
+		$body = $req->body;
+
 		var_dump($req);
 	}
 
-	public function uriParamasRoute(array $req){
-		var_dump($req);
+	public static function middleware(Request $req, Response $res){
+		echo "executing middleware";
+		return ["name" => "Nelson"];
 	}
+};
 
-	public function postExample(array $req){
-		var_dump($req);
-	}
-}
+$app->get("/", function(Request $req, Response $res){
 
-Route::post("/example/post", [ClassExample::class, "postExample"]);
+	$res->status(200)->sendJson([
 
-Route::get("/", [ClassExample::class, "absoluteRoute"]);
+		"name" =>"Nelson"
 
-Route::get("/example/:uuid", [ClassExample::class, "uriParamasRoute"]);
-Route::get("/example/:name/example/:age", [ClassExample::class, "uriParamasRoute"]);
+	]);
+});
+
+$app->get("/example/:urlParam", 
+
+	function(Request $req, Response $res){
+		echo "executing middleware";
+	},
+
+	[Example::class, "Example"]
+);
+
+$app->post("/post", 
+	[Example::class, "middleware"],
+	[Example::class, "Example"]
+);
