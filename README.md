@@ -23,7 +23,14 @@ I created it to put my knowledge into practice.
 <h2>🐘 Resources</h2>  
 
 * Routes
-  * 
+  * Request object in route callback parameter
+    * Body(array) parameter to access the body of the request
+    * UrlParams(array) parameter to access the urlParams of the route
+    * QueryParams(array) parameter to access the queryParams of the route  <br>
+  * Response object in route callback parameter
+    * Method called sendJson() to send a json as a response
+    * Method called status() for response status
+    
 * Method called 'static' that is responsible for rendering static files
 
 
