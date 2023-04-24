@@ -40,7 +40,7 @@ I created it to put my knowledge into practice.
   <li>composer version =>2.5.1</li>
 </ul>
 
-<h2>🧷 Author</h2>
+<h2>🔥 Author</h2>
 
 | [<img src="https://avatars.githubusercontent.com/Nelson-Dominici" width=115><br><sub>Nelson Dominici</sub>](https://github.com/Nelson-Dominici) |
 | :---: |
