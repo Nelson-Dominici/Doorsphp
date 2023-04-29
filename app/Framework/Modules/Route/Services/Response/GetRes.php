@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Modules\Route\Services\Response;
+namespace app\Framework\Modules\Route\Services\Response;
 
 class GetRes 
 {

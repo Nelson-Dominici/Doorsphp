@@ -4,10 +4,10 @@
 
 require_once("./vendor/autoload.php");
 
-use app\App;
+use app\Framework\App;
 
-use app\Modules\Route\Services\Response\GetRes as Response;
-use app\Modules\Route\Services\Request\GetReq as Request;
+use app\Framework\Modules\Route\Services\Response\GetRes as Response;
+use app\Framework\Modules\Route\Services\Request\GetReq as Request;
 
 $app = new App();
 
@@ -27,7 +27,7 @@ class Example
 	}
 };
 
-$app->get("/", function(Request $req, Response $res){
+$app->get("/user/", function(Request $req, Response $res){
 
 	$res->status(200)->sendJson([
 

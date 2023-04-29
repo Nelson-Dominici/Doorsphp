@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Modules\Route\Services\RouteTypes;
+namespace app\Framework\Modules\Route\Services\RouteTypes;
 
 class AbsoluteRoute
 {

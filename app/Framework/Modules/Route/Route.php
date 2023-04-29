@@ -1,12 +1,12 @@
 <?php
 
-namespace app\Modules\Route;
+namespace app\Framework\Modules\Route;
 
-use app\Modules\Route\Services\RouteTypes\AbsoluteRoute;
-use app\Modules\Route\Services\RouteTypes\UrlParamsRoute;
+use app\Framework\Modules\Route\Services\RouteTypes\AbsoluteRoute;
+use app\Framework\Modules\Route\Services\RouteTypes\UrlParamsRoute;
 
-use app\Modules\Route\Services\Request\GetReq;
-use app\Modules\Route\Services\Response\GetRes;
+use app\Framework\Modules\Route\Services\Request\GetReq;
+use app\Framework\Modules\Route\Services\Response\GetRes;
 
 class Route
 {

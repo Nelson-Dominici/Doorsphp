@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Modules\Route\Services;
+namespace app\Framework\Modules\Route\Services;
 
 class CallRouteFunc
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Modules\Route\Services\Request;
+namespace app\Framework\Modules\Route\Services\Request;
 
 class GetReq
 {

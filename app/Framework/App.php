@@ -1,12 +1,11 @@
 <?php
 
-namespace app;
-use app\Modules\Route\Route;
+namespace app\Framework;
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: *");
 
-class App extends Route
+class App extends Modules\Route\Route
 {
 
 	public function get(string $route, array|callable ...$funcs): void{
