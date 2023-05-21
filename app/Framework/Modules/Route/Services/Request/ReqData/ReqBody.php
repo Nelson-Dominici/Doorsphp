@@ -21,7 +21,8 @@ class ReqBody
 		if($body !== []){
 	
 			return array_map(function ($input) {
-				return htmlspecialchars(strip_tags($input));
+
+				return trim(htmlspecialchars(strip_tags($input)));
 			
 			}, $body);
 		}
