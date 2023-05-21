@@ -35,14 +35,4 @@ class App extends Modules\Route\Route
 			$this->check($route, $funcs);
 		}			
 	}
-
-	public function static(string $path){
-
-		if(file_exists($path)){
-			require_once($path);
-
-		}
-
-	}
-
 }
