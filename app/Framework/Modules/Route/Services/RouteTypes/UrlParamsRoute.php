@@ -7,15 +7,15 @@ class UrlParamsRoute
 
 	public static function get(string $uri, string $route): array|bool{
 
-		$uriParts = explode("/", $uri);
-		array_shift($uriParts);
+		$urlParts = explode("/", $uri);
+		array_shift($urlParts);
 		
 		$routeParts = explode("/", $route);
 		array_shift($routeParts);
 		
 		$urlParams = [];
 
-		if(count($uriParts) === count($routeParts)){
+		if(count($urlParts) === count($routeParts)){
 
 			$urlParamsRoute = array_filter($routeParts, function($field) {
 				return strpos($field, ":") === 0;
@@ -23,27 +23,33 @@ class UrlParamsRoute
 
 			if(!empty($urlParamsRoute)){
 
-				$noParamsArray = array_filter($routeParts, function($field) {
+				$noUrlParamsInRoute = array_filter($routeParts, function($field) {
 					return strpos($field, ":") !== 0;
 				});
 
-				$essentialPartsUri = array_map(function($key) use($uriParts){
+				$noUrlParamsInUrl = array_map(function($key) use($urlParts){
 
-					return $uriParts[$key];
+					return $urlParts[$key];
 
-				}, array_keys($noParamsArray));
+				}, array_keys($noUrlParamsInRoute));
 
-				$essentialPartsUri = implode(', ', 
-					array_intersect($noParamsArray, $essentialPartsUri)
+				$noUrlParamsInUrl = implode(', ', 
+					array_intersect($noUrlParamsInRoute, $noUrlParamsInUrl)
 				);
 
-				$essentialPartsRoute = implode(', ', $noParamsArray);
+				$noUrlParamsInRoute = implode(', ', $noUrlParamsInRoute);
 
-				if($essentialPartsUri === $essentialPartsRoute){
+				if($noUrlParamsInUrl === $noUrlParamsInRoute){
 
 					foreach ($urlParamsRoute as $key => $value) {
-						$uriParamKey = str_replace(":", "", $value);
-						$urlParams[$uriParamKey] = $uriParts[$key];
+						
+						if(!$urlParts[$key]){
+							return false;
+						}
+
+						$urlParamKey = str_replace(":", "", $value);
+						$urlParams[$urlParamKey] = $urlParts[$key];
+					
 					}
 				}
 			}
