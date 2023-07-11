@@ -5,13 +5,6 @@
 
 </p>
 
-<span align="center" >
-
-[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
-[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
-
-</span>
-
 <h2>🚀 About</h2>
 <p>
 PHP-Framework is a framework created with no intention to be used for the development of other projects.<br>
