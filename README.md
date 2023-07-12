@@ -1,7 +1,6 @@
 <p align="center" >
 
-<img style="object-fit: cover;" src="https://user-images.githubusercontent.com/89428967/226063552-ba75bdff-60d2-43b4-acd8-dd8a1dff5903.png" width="220px" height="200px">
-
+ <img style="object-fit: cover;" src="https://user-images.githubusercontent.com/89428967/226063552-ba75bdff-60d2-43b4-acd8-dd8a1dff5903.png" width="220px" height="200px">
 
 </p>
 
@@ -11,21 +10,124 @@ PHP-Framework is a framework created with no intention to be used for the develo
 I created it to put my knowledge into practice.
 <p>
 
+<h2>🗺 Routes</h2>  
 
+<p>
 
-<h2>🐘 Resources</h2>  
+The Framework has resources to create <strong>HTTP</strong> Routes, using the methods of the App class object, the methods are: <strong>get()</strong>, <strong>post()</strong> , <strong>put()</strong> and <strong>delete()</strong>, each representing their respective <strong>HTTP</strong> methods, these methods must receive two arguments, the first is the <strong>endpoint</strong> of the route and the second is the <strong>controller</strong> of the route.
+ 
+<p>
 
-* Routes
-  * Request object in route callback parameter
-    * Body(array) parameter to access the body of the request
-    * UrlParams(array) parameter to access the urlParams of the route
-    * QueryParams(array) parameter to access the queryParams of the route  <br>
-  * Response object in route callback parameter
-    * Method called sendJson() to send a json as a response
-    * Method called status() for response status
-    
-* Method called 'static' that is responsible for rendering static files
+```php
+<?php
 
+require_once("./vendor/autoload.php");
+
+use app\Framework\App;
+
+use app\Framework\Modules\Route\Services\Response\GetRes as Response;
+use app\Framework\Modules\Route\Services\Request\GetReq as Request;
+
+$app = new App();
+
+class ExampleClass
+{
+	
+	public static function exampleMethod(Request $req, Response $res): void 
+	{
+
+		$queryParams = $req->queryParams;
+		$urlParams = $req->urlParams;
+		$body = $req->body;
+
+		var_dump($urlParams);
+	
+		$res->status(200);
+
+	}
+
+};
+
+$app->get("/endpoint/:urlParam", [ExampleClass::class, "exampleMethod"]);
+
+$app->post("/endpoint", function(Request $req, Response $res): void
+{
+
+	$res->status(200)->sendJson(["success" => true]);
+
+});
+
+```
+
+<h3>🕹 Route controller</h3>  
+
+<p>
+
+There are two ways to place a controller in a route:
+ 
+<p>
+
+<ul>
+  <li>Using an array with a Class with the identifier "::class" and a string with the name of the method(must be static)</li><br>
+ 
+```php
+<?php
+
+require_once("./vendor/autoload.php");
+
+use app\Framework\App;
+
+use app\Framework\Modules\Route\Services\Response\GetRes as Response;
+use app\Framework\Modules\Route\Services\Request\GetReq as Request;
+
+$app = new App();
+
+class ExampleClass
+{
+	
+	public static function exampleMethod(Request $req, Response $res): void 
+	{
+
+		$queryParams = $req->queryParams;
+		$urlParams = $req->urlParams;
+		$body = $req->body;
+
+		var_dump($urlParams);
+	
+		$res->status(200);
+
+	}
+
+};
+
+$app->get("/endpoint/:urlParam", [ExampleClass::class, "exampleMethod"]);
+
+```
+ 
+  <li>Using an array with a Class with the identifier "::class", and a string with the name of the method</li><br>
+ 
+```php
+<?php
+
+require_once("./vendor/autoload.php");
+
+use app\Framework\App;
+
+use app\Framework\Modules\Route\Services\Response\GetRes as Response;
+use app\Framework\Modules\Route\Services\Request\GetReq as Request;
+
+$app = new App();
+
+$app->post("/endpoint", function(Request $req, Response $res): void
+{
+
+	$res->status(200)->sendJson(["success" => true]);
+
+});
+
+```
+
+</ul>
 
 <h2>⚙ Requirements</h2>
 <ul>
