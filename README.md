@@ -32,25 +32,25 @@ $app = new App();
 
 class ExampleClass
 {
-	public static function exampleMethod(Request $req, Response $res): void 
-	{
-		$queryParams = $req->queryParams;
-		$urlParams = $req->urlParams;
+    public static function exampleMethod(Request $req, Response $res): void 
+    {
+        $queryParams = $req->queryParams;
+        $urlParams = $req->urlParams;
 
-		var_dump($urlParams);
+        var_dump($urlParams);
 	
-		$res->status(200);
-	}
+        $res->status(200);
+    }
 };
 
 $app->get("/endpoint/:urlParam", [ExampleClass::class, "exampleMethod"]);
 
 $app->post("/endpoint", function(Request $req, Response $res): void
 {
-	$queryParams = $req->queryParams;
-	$body = $req->body;
+    $queryParams = $req->queryParams;
+    $body = $req->body;
 
-	$res->status(200)->sendJson(["success" => true]);
+    $res->status(200)->sendJson(["success" => true]);
 });
 
 ```
@@ -78,10 +78,10 @@ $app->get("/endpoint/:urlParam", [ExampleClass::class, "exampleMethod"]);
 
 $app->post("/endpoint", function(Request $req, Response $res): void
 {
-	$queryParams = $req->queryParams;
-	$body = $req->body;
+    $queryParams = $req->queryParams;
+    $body = $req->body;
 
-	$res->status(200)->sendJson(["success" => true]);
+    $res->status(200)->sendJson(["success" => true]);
 });
 
 ```
@@ -106,13 +106,69 @@ $app->get("/endpoint/:urlParam", [ExampleClass::class, "exampleMethod"]);
 
 <p>
 
-In the Request Class, which is the first parameter of the Controller, you will have access to data from: <strong>Request Body</strong>, <strong>Url Params</strong>, and <strong>Query Params</strong>:
+In the Request Class, which is the first parameter of the Controller, you will have access to the data of: <strong>Request Body</strong>, <strong>Url Params</strong> and <strong>Query Params</strong>, <strong>Middleware Data</strong>:
 
 ```php
 
 $body = $req->body;
 $urlParams = $req->urlParams;
 $queryParams = $req->queryParams;
+$middlewareData = $req->middlewareData;
+
+```
+</p>
+
+<h3>🗳 Response Classs</h3>  
+
+<p>
+	
+In the Response class, which is the second parameter of the Controller, you will have access to the <strong>sendJson()</strong> method to send a json as a response, and to the <strong>status()</strong> method to send the response status (can you call both at the same time, or just one).
+
+```php
+
+$res->status(200)->sendJson(["success" => true]);
+
+```
+</p>
+
+<h3>🔒 Middlewares</h3>  
+
+<ul>
+ <li>To return data from one middleware to another, or to your "final" controller, you simply return an associative array (key and value)</li>
+ <li>If you call any method of the Response Class in a middleware, the execution of the following middlewares or the "final" controller will be interrupted.</li>
+</ul>
+
+<p>
+
+It is possible to apply middlewares to routes, using one or more controllers before your "final" controller.
+	
+```php
+
+class FirstMiddleware
+{
+
+    static public function execute(Request $req, Response $res): void
+    {
+       // Firs Middleware
+    }
+	
+}
+
+$app->get("/endpoint", 
+
+    [FirstMiddleware::class, "execute"],
+
+    function(Request $req, Response $res): array
+    {
+        return ["example" => "12345"];
+    },
+
+    function(Request $req, Response $res): void
+    {
+        var_dump($req);
+    }
+);
+
 
 ```
 </p>
