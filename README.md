@@ -68,7 +68,7 @@ There are two ways to place a controller in a route:
 <p>
 
 <ul>
-  <li>Using an array with a Class with the identifier "::class" and a string with the name of the method(must be static)</li><br>
+ <strong><li>Using an array with a Class with the identifier "::class" and a string with the name of the method(method must be static)</li><br></strong>
  
 ```php
 <?php
@@ -104,7 +104,7 @@ $app->get("/endpoint/:urlParam", [ExampleClass::class, "exampleMethod"]);
 
 ```
  
-  <li>Using an array with a Class with the identifier "::class", and a string with the name of the method</li><br>
+  <li><strong>Using an anonymous function</strong></li><br>
  
 ```php
 <?php
