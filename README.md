@@ -1,8 +1,8 @@
-<p align="center" >
+<h1 align="center" >
 
- <img style="object-fit: cover;" src="https://user-images.githubusercontent.com/89428967/226063552-ba75bdff-60d2-43b4-acd8-dd8a1dff5903.png" width="220px" height="200px">
+🐘 PHP Framework 🐘
 
-</p>
+</h1>
 
 <h2>🚀 About</h2>
 <p>
