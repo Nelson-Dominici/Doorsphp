@@ -8,7 +8,7 @@
 <p>
 PHP-Framework is a framework created with no intention to be used for the development of other projects.<br>
 I created it to put my knowledge into practice.
-<p>
+</p>
 
 <h2>🗺 Routes</h2>  
 
@@ -16,7 +16,7 @@ I created it to put my knowledge into practice.
 
 The Framework has resources to create <strong>HTTP</strong> Routes, using the methods of the App class object, the methods are: <strong>get()</strong>, <strong>post()</strong> , <strong>put()</strong> and <strong>delete()</strong>, each representing their respective <strong>HTTP</strong> methods, these methods must receive two arguments, the first is the <strong>endpoint</strong> of the route and the second is the <strong>controller</strong> of the route.
  
-<p>
+</p>
 
 ```php
 <?php
@@ -32,29 +32,25 @@ $app = new App();
 
 class ExampleClass
 {
-	
 	public static function exampleMethod(Request $req, Response $res): void 
 	{
-
 		$queryParams = $req->queryParams;
 		$urlParams = $req->urlParams;
-		$body = $req->body;
 
 		var_dump($urlParams);
 	
 		$res->status(200);
-
 	}
-
 };
 
 $app->get("/endpoint/:urlParam", [ExampleClass::class, "exampleMethod"]);
 
 $app->post("/endpoint", function(Request $req, Response $res): void
 {
+	$queryParams = $req->queryParams;
+	$body = $req->body;
 
 	$res->status(200)->sendJson(["success" => true]);
-
 });
 
 ```
@@ -65,69 +61,62 @@ $app->post("/endpoint", function(Request $req, Response $res): void
 
 There are two ways to place a controller in a route:
  
-<p>
+</p>
 
 <ul>
- <strong><li>Using an array with a Class with the identifier "::class" and a string with the name of the method(method must be static)</li><br></strong>
+ <strong><li>Using an array with a Class with the identifier "::class" and a string with the name of the method(method must be static):</li><br></strong>
  
 ```php
-<?php
-
-require_once("./vendor/autoload.php");
-
-use app\Framework\App;
-
-use app\Framework\Modules\Route\Services\Response\GetRes as Response;
-use app\Framework\Modules\Route\Services\Request\GetReq as Request;
-
-$app = new App();
-
-class ExampleClass
-{
-	
-	public static function exampleMethod(Request $req, Response $res): void 
-	{
-
-		$queryParams = $req->queryParams;
-		$urlParams = $req->urlParams;
-		$body = $req->body;
-
-		var_dump($urlParams);
-	
-		$res->status(200);
-
-	}
-
-};
 
 $app->get("/endpoint/:urlParam", [ExampleClass::class, "exampleMethod"]);
 
 ```
  
-  <li><strong>Using an anonymous function</strong></li><br>
+<li><strong>Using an anonymous function:</strong></li><br>
  
 ```php
-<?php
-
-require_once("./vendor/autoload.php");
-
-use app\Framework\App;
-
-use app\Framework\Modules\Route\Services\Response\GetRes as Response;
-use app\Framework\Modules\Route\Services\Request\GetReq as Request;
-
-$app = new App();
 
 $app->post("/endpoint", function(Request $req, Response $res): void
 {
+	$queryParams = $req->queryParams;
+	$body = $req->body;
 
 	$res->status(200)->sendJson(["success" => true]);
-
 });
 
 ```
 
 </ul>
+
+<h3>🎲 Url Params</h3>  
+
+<p>
+
+The Framework has a resource for creating routes with URL Params, to create them just create a route of type <strong>get()</strong> passing the root of the route path with ":":
+
+```php
+
+$app->get("/endpoint/:urlParam", [ExampleClass::class, "exampleMethod"]);
+
+```
+</p>
+
+
+<h3>📦 Request Classs</h3>  
+
+<p>
+
+In the Request Class, which is the first parameter of the Controller, you will have access to data from: <strong>Request Body</strong>, <strong>Url Params</strong>, and <strong>Query Params</strong>:
+
+```php
+
+$body = $req->body;
+$urlParams = $req->urlParams;
+$queryParams = $req->queryParams;
+
+```
+</p>
+
 
 <h2>⚙ Requirements</h2>
 <ul>
