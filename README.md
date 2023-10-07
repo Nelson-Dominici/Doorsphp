@@ -1,13 +1,12 @@
 <h1 align="center" >
 
-🐘 PHP Framework 🐘
+🚪 Doorsphp 🚪
 
 </h1>
 
-<h2>🚀 About</h2>
+<h2>🍄🤪🤯</h2>
 <p>
-PHP-Framework is a framework created with no intention to be used for the development of other projects.<br>
-I created it to put my knowledge into practice.
+Doorsphp is a framework created for student purposes, <strong>with no intention of being used in real projects</strong>.
 </p>
 
 <h2>🗺 Routes</h2>  
