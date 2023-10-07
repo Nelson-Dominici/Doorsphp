@@ -2,30 +2,49 @@
 
 namespace app\Framework\Modules\Route;
 
-use app\Framework\Modules\Route\Services\RouteTypes\AbsoluteRoute;
-use app\Framework\Modules\Route\Services\RouteTypes\UrlParamsRoute;
+use app\Framework\Modules\Route\Services\RouteTypes\{
+	AbsoluteRoute,
+	UrlParamsRoute
+};
 
-use app\Framework\Modules\Route\Services\Request\GetReq;
-use app\Framework\Modules\Route\Services\Response\GetRes;
-
-class Route
+trait Route
 {
-
-	protected function check(string $route, array|callable $funcs): void{
-		
+	private function check(string $routePath, array|callable $closures): void
+	{	
 		$uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
-		$absoluteRoute = AbsoluteRoute::get($uri, $route);
-		$uriParamsRoute = UrlParamsRoute::get($uri, $route);
+		$absoluteRoute = AbsoluteRoute::check($uri, $routePath);
+		$urlParamsRoute = UrlParamsRoute::check($uri, $routePath);
 
-		if($absoluteRoute || $uriParamsRoute){
+		if ($absoluteRoute || $urlParamsRoute) {
 		
-			$req = new GetReq($uriParamsRoute);
-			$res = new GetRes();
+			$request = new Request($urlParamsRoute);
+			$response = new Response();
 
-			Services\CallRouteFunc::call($funcs, [$req, $res]);
+			Services\ClosuresHandler::handle($closures, $request, $response);
+
 			exit();
 		}
 	}
-	
+
+    public function __call(string $method, callable|array $closures): void
+    {
+    	$requestMethod = strtolower($_SERVER["REQUEST_METHOD"]);
+
+    	if (
+	    	$method !== 'get'  && 
+	    	$method !== 'put'  && 
+	    	$method !== 'post' && 
+	    	$method !== 'delete'
+		) {
+	    	throw new \Exception("The '".$method."' method does not exist.");
+    	}
+
+		if ($method == $requestMethod) {
+
+			$routePath = array_shift($closures);
+
+			$this->check($routePath, $closures);		
+		}
+    }
 }
