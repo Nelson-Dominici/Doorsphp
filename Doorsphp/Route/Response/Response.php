@@ -4,25 +4,17 @@ namespace Doorsphp\Route\Response;
 
 class Response 
 {
-	private bool $statusCode = true;
-
-	public function sendJson(array $json): GetRes{
+	public function json(array $data, int $statusCode = 200): void
+	{
 		
-		header("Content-Type: application/json; charset=utf-8");
-		
-		echo json_encode($json);
+		if (!empty($data)) {
 
-		exit();
-	}
-
-	public function status(string|int $status): GetRes{
-		
-		if($this->statusCode){
-			http_response_code($status);
-		}else{
-			$this->statusCode = false;
+			header("Content-Type: application/json; charset=utf-8");
+			echo json_encode($data);
 		}
 
-		return $this;
+		http_response_code($statusCode);
+
+		exit();
 	}
 }
