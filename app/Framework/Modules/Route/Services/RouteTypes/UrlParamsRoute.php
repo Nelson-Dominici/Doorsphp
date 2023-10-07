@@ -4,26 +4,27 @@ namespace app\Framework\Modules\Route\Services\RouteTypes;
 
 class UrlParamsRoute
 {
-
-	public static function get(string $uri, string $route): array|bool{
+	public static function check(string $uri, string $routePath): array|bool
+	{
 
 		$urlParts = explode("/", $uri);
 		array_shift($urlParts);
 		
-		$routeParts = explode("/", $route);
-		array_shift($routeParts);
+		$routePathParts = explode("/", $routePath);
+		array_shift($routePathParts);
 		
 		$urlParams = [];
 
-		if(count($urlParts) === count($routeParts)){
+		if (count($urlParts) === count($routePathParts)) {
 
-			$urlParamsRoute = array_filter($routeParts, function($field) {
+			$urlParamsRoute = array_filter($routePathParts, function($field) {
 				return strpos($field, ":") === 0;
 			});
 
-			if(!empty($urlParamsRoute)){
+			if (!empty($urlParamsRoute)) {
 
-				$noUrlParamsInRoute = array_filter($routeParts, function($field) {
+				$noUrlParamsInRoute = array_filter($routePathParts, function(
+					$field) {
 					return strpos($field, ":") !== 0;
 				});
 
@@ -39,11 +40,11 @@ class UrlParamsRoute
 
 				$noUrlParamsInRoute = implode(', ', $noUrlParamsInRoute);
 
-				if($noUrlParamsInUrl === $noUrlParamsInRoute){
+				if ($noUrlParamsInUrl === $noUrlParamsInRoute) {
 
 					foreach ($urlParamsRoute as $key => $value) {
 						
-						if(!$urlParts[$key]){
+						if (!$urlParts[$key]) {
 							return false;
 						}
 
