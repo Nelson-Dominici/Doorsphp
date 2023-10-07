@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Framework\Modules\Route\Services\Request;
+namespace Doorsphp\Route\Request;
 
 class RequestBody
 {

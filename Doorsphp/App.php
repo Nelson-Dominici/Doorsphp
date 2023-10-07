@@ -1,11 +1,11 @@
 <?php
 
-namespace app\Framework;
+namespace Doorsphp;
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: *");
 
-use app\Framework\Modules\Route\Route;
+use Doorsphp\Route\Route;
 
 class App
 {

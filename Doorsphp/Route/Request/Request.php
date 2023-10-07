@@ -1,11 +1,6 @@
 <?php
 
-namespace app\Framework\Modules\Route;
-
-use app\Framework\Modules\Route\Services\Request\{
-	RequestBody,
-	QueryParams
-};
+namespace Doorsphp\Route\Request;
 
 class Request
 {

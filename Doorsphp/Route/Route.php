@@ -1,11 +1,11 @@
 <?php
 
-namespace app\Framework\Modules\Route;
+namespace Doorsphp\Route;
 
-use app\Framework\Modules\Route\Services\RouteTypes\{
-	AbsoluteRoute,
-	UrlParamsRoute
-};
+use Doorsphp\Route\RouteTypes\{AbsoluteRoute, UrlParamsRoute};
+
+use Doorsphp\Route\Request\Request;
+use Doorsphp\Route\Response\Response;
 
 trait Route
 {
@@ -21,7 +21,7 @@ trait Route
 			$request = new Request($urlParamsRoute);
 			$response = new Response();
 
-			Services\ClosuresHandler::handle($closures, $request, $response);
+			ClosuresHandler::handle($closures, $request, $response);
 
 			exit();
 		}

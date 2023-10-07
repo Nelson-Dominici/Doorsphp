@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Framework\Modules\Route\Services\RouteTypes;
+namespace Doorsphp\Route\RouteTypes;
 
 class UrlParamsRoute
 {

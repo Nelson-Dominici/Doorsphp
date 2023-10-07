@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Framework\Modules\Route;
+namespace Doorsphp\Route\Response;
 
 class Response 
 {

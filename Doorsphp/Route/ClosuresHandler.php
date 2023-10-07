@@ -1,8 +1,9 @@
 <?php
 
-namespace app\Framework\Modules\Route\Services;
+namespace Doorsphp\Route;
 
-use app\Framework\Modules\Route\{Request, Response};
+use Doorsphp\Route\Request\Request;
+use Doorsphp\Route\Response\Response;
 
 class ClosuresHandler
 {
@@ -28,7 +29,7 @@ class ClosuresHandler
 		    }
 		}
 
-		if (!is_array($controller)) {
+		if (is_array($controller)) {
 
 		    [$class, $method] = $controller;
 		    call_user_func([$class, $method], $request, $response);
