@@ -4,7 +4,7 @@
 
 </h1>
 
-<h2>🍄🤪🤯</h2>
+<h2>🍄About</h2>
 <p>
 Doorsphp is a framework created for student purposes, <strong>with no intention of being used in real projects</strong>.
 </p>
