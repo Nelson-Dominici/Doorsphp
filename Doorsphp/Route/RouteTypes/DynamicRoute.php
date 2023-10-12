@@ -2,7 +2,7 @@
 
 namespace Doorsphp\Route\RouteTypes;
 
-class UrlParamsRoute
+class DynamicRoute
 {
 	public static function check(string $uri, string $routePath): array|bool
 	{
