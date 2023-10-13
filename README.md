@@ -1,10 +1,6 @@
-<h1 align="center" >
+<h1 align="center">🚪 Doorsphp 🚪</h1>
 
-🚪 Doorsphp 🚪
-
-</h1>
-
-<h2>🍄About</h2>
+<h2>🍄 About</h2>
 <p>
 Doorsphp is a framework created for student purposes, <strong>with no intention of being used in real projects</strong>.
 </p>
@@ -13,7 +9,7 @@ Doorsphp is a framework created for student purposes, <strong>with no intention 
 
 <p>
 
-The Framework has resources to create <strong>HTTP</strong> Routes, using the methods of the App class object, the methods are: <strong>get()</strong>, <strong>post()</strong> , <strong>put()</strong> and <strong>delete()</strong>, each representing their respective <strong>HTTP</strong> methods, these methods must receive two arguments, the first is the <strong>endpoint</strong> of the route and the second is the <strong>controller</strong> of the route.
+Doorsphp has resources to create <strong>HTTP</strong> Routes, using the methods of the App class object, the methods are: <strong>get()</strong>, <strong>post()</strong> , <strong>put()</strong> and <strong>delete()</strong>, each representing their respective <strong>HTTP</strong> methods, these methods must receive two arguments, the first is the <strong>endpoint</strong> of the route and the second is the <strong>controller</strong> of the route.
  
 </p>
 
@@ -22,10 +18,9 @@ The Framework has resources to create <strong>HTTP</strong> Routes, using the me
 
 require_once("./vendor/autoload.php");
 
-use app\Framework\App;
-
-use app\Framework\Modules\Route\Services\Response\GetRes as Response;
-use app\Framework\Modules\Route\Services\Request\GetReq as Request;
+use Doorsphp\App;
+use Doorsphp\Route\Request\Request;
+use Doorsphp\Route\Response\Response;
 
 $app = new App();
 
@@ -87,11 +82,11 @@ $app->post("/endpoint", function(Request $req, Response $res): void
 
 </ul>
 
-<h3>🎲 Url Params</h3>  
+<h3>🎲 Dynamic routes</h3>  
 
 <p>
 
-The Framework has a resource for creating routes with URL Params, to create them just create a route of type <strong>get()</strong> passing the root of the route path with ":":
+Doorsphp has a feature for creating dynamic routes, to create them just create a route with the root of the route path with ":":
 
 ```php
 
